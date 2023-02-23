@@ -45,3 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerPrefab: {fileID: 8520273824082043534, guid: 9c29f0e8196735a459d612d4b5c71027, type: 3}
+  FoodBarPrefab: {fileID: 9082626637740644514, guid: e442e498981632541b7230076158176c, type: 3}
+  HealthBarPrefab: {fileID: 3248952644011768950, guid: c4e5f6995b2c6c843b1e978ed27fb5eb, type: 3}
+  StaminaBarPrefab: {fileID: 1682569866952561100, guid: 64b0deea3e31fa8408c0a57fe3f1f1c3, type: 3}
+  PlayerInstance: {fileID: 0}

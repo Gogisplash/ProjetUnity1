@@ -21,17 +21,13 @@ public class PlayerController : MonoBehaviour
     public SliderUse healthBar;
     public SliderUse staminaBar;
     public SliderUse foodBar;
+    //public Canvas CanvaStat;
 
     public int Health;
 
-    public int stamina;
+    public int Stamina;
 
-    public int food;
-
-
-
-    float Endurance;
-    float Food;
+    public int Food;
 
     float TimeToWait;
     float TimeToUseEndurance;
@@ -45,7 +41,8 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Endurance = 100;
+        Health = 100;
+        Stamina = 100;
         Food = 100;
         TimeToWait = 0;
         TimeToUseEndurance = 0;
@@ -53,15 +50,15 @@ public class PlayerController : MonoBehaviour
         TimeToUseFood = 0;
 
         
+        //CanvaStat.GetComponent<Food>
         
-        
-        healthBar.SetMaxSlider(100);
+        healthBar.SetMaxSlider(Health);
 
 
-        foodBar.SetMaxSlider(100);
+        foodBar.SetMaxSlider(Food);
 
 
-        staminaBar.SetMaxSlider(100);
+        staminaBar.SetMaxSlider(Stamina);
     }
 
     // Update is called once per frame
@@ -131,11 +128,11 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.M))
         {
             Health -= 20;
-            food -= 20;
-            stamina -= 20;
+            Food -= 20;
+            Stamina -= 20;
             healthBar.SetSlider(Health);
-            staminaBar.SetSlider(stamina);
-            foodBar.SetSlider(food);
+            staminaBar.SetSlider(Stamina);
+            foodBar.SetSlider(Food);
         }
         FoodsArray = GameObject.FindGameObjectsWithTag("Food");
         TimeToUseFood += Time.deltaTime;
@@ -144,7 +141,7 @@ public class PlayerController : MonoBehaviour
             UseFood();
         }
         TimeToAddEndurance += Time.deltaTime;
-        if (Endurance < 100 && Endurance > 10 && TimeToAddEndurance > 1)
+        if (Stamina < 100 && Stamina > 10 && TimeToAddEndurance > 1)
         {
             AddEndurance();
             TimeToAddEndurance = 0;
@@ -168,7 +165,8 @@ public class PlayerController : MonoBehaviour
         TimeToWait += Time.deltaTime;
         if (TimeToWait >= 15)
         {
-            Endurance += 40;
+            Stamina += 40;
+            staminaBar.SetSlider(Stamina);
             TimeToWait = 0;
         }
     }
@@ -177,12 +175,14 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("You add 20 Food");
         Food += 20;
+        foodBar.SetSlider(Food);
         Destroy(food);
     }
     void UseFood()
     {
         Debug.Log("You Loose 5 Food");
         Food -= 5;
+        foodBar.SetSlider(Food);
         TimeToUseFood = 0;
         if (Food <= 0)
             Debug.Log("You dead");
@@ -190,12 +190,14 @@ public class PlayerController : MonoBehaviour
     void AddEndurance()
     {
         Debug.Log("You add 1 Endurance");
-        Endurance += 1;
+        Stamina += 1;
+        staminaBar.SetSlider(Stamina);
     }
     void UseEndurance()
     {
         Debug.Log("You Loose 10 Endurance");
-        Endurance -= 10;
+        Stamina -= 10;
+        staminaBar.SetSlider(Stamina);
         TimeToUseEndurance = 0;
     }
 }

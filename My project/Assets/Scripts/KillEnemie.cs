@@ -32,7 +32,7 @@ public class KillEnemie : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             Debug.Log("Kill");
-            Destroy(gameObject);
+            Destroy(transform.parent.gameObject);
         }
     }
 

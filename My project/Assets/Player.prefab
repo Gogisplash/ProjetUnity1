@@ -47198,13 +47198,13 @@ MonoBehaviour:
   ground_distance: 0.4
   ground_mask:
     serializedVersion: 2
-    m_Bits: 64
-  healthBar: {fileID: 0}
-  staminaBar: {fileID: 0}
-  foodBar: {fileID: 0}
+    m_Bits: 72
+  healthBar: {fileID: 3248952644011768950, guid: c4e5f6995b2c6c843b1e978ed27fb5eb, type: 3}
+  staminaBar: {fileID: 1682569866952561100, guid: 64b0deea3e31fa8408c0a57fe3f1f1c3, type: 3}
+  foodBar: {fileID: 9082626637740644514, guid: e442e498981632541b7230076158176c, type: 3}
   Health: 0
-  stamina: 0
-  food: 0
+  Stamina: 0
+  Food: 0
   EatingDistance: 1
 --- !u!114 &292617224268120297
 MonoBehaviour:
