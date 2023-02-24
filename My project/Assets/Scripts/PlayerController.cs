@@ -120,19 +120,20 @@ public class PlayerController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        
+        healthBar.SetSlider(Health);
+        staminaBar.SetSlider(Stamina);
+        foodBar.SetSlider(Food);
 
-        
+
 
         //UI
-        if (Input.GetKeyDown(KeyCode.M))
+        if (Input.GetKey(KeyCode.M))
         {
+            Debug.Log("M");
             Health -= 20;
             Food -= 20;
             Stamina -= 20;
-            healthBar.SetSlider(Health);
-            staminaBar.SetSlider(Stamina);
-            foodBar.SetSlider(Food);
+            
         }
         FoodsArray = GameObject.FindGameObjectsWithTag("Food");
         TimeToUseFood += Time.deltaTime;
